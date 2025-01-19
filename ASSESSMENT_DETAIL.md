@@ -47,7 +47,7 @@
    - (English) The main todo container must have an id of #todo-container
 
 ```javascript
-// Use any tag, just ensure it has the id "todo-list"
+// Use any tag, just ensure it has the id "todo-container"
 // Example
 <tag id="todo-container">
   {todo.map(() => (
