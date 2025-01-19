@@ -1,0 +1,220 @@
+{
+  "stats": {
+    "suites": 2,
+    "tests": 6,
+    "passes": 6,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-01-19T15:31:57.324Z",
+    "end": "2025-01-19T15:32:03.397Z",
+    "duration": 6073,
+    "testsRegistered": 6,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "be9faf52-fadb-47af-a6dd-2c7fd2d66678",
+      "title": "",
+      "fullFile": "cypress/e2e/spec.cy.js",
+      "file": "cypress/e2e/spec.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "5da1ad80-8ca3-4f86-8500-52026e9878ac",
+          "title": "spec",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "ab3c2fbf-fcca-4717-87de-c516c118003a",
+              "title": "Todo List",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should display the correct frontend url",
+                  "fullTitle": "spec Todo List should display the correct frontend url",
+                  "timedOut": null,
+                  "duration": 918,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.url().should(\"eq\", todosUrlPage);",
+                  "err": {},
+                  "uuid": "87b51b0b-62b7-4402-b1dc-6c867bbc8e31",
+                  "parentUUID": "ab3c2fbf-fcca-4717-87de-c516c118003a",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should display the todo list",
+                  "fullTitle": "spec Todo List should display the todo list",
+                  "timedOut": null,
+                  "duration": 822,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.screenshot(\"todo-page\", {\n  overwrite: true\n});\ncy.contains(\"My Todo\");\ncy.get(\"input[placeholder='new task']\").should(\"exist\");\ncy.get(\"#todo-container\").should(\"contain\", \"Learn React\");\ncy.get(\"#todo-container\").should(\"contain\", \"Learn javascript\");\ncy.get(\"#todo-container\").should(\"contain\", \"Learn css\");",
+                  "err": {},
+                  "uuid": "63a8afc6-08af-4717-8a3d-b759c0d5d5ab",
+                  "parentUUID": "ab3c2fbf-fcca-4717-87de-c516c118003a",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should display completed todos with a strikethrough",
+                  "fullTitle": "spec Todo List should display completed todos with a strikethrough",
+                  "timedOut": null,
+                  "duration": 268,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.get(\"#todo-container\").children().contains(\"Learn React\").should(\"have.css\", \"text-decoration-line\", \"line-through\");\ncy.get(\"#todo-container\").children().contains(\"Learn javascript\").should(\"not.have.css\", \"text-decoration-line\", \"line-through\");",
+                  "err": {},
+                  "uuid": "dcb3382b-8269-47ec-844c-93506f697c71",
+                  "parentUUID": "ab3c2fbf-fcca-4717-87de-c516c118003a",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should add a new todo item",
+                  "fullTitle": "spec Todo List should add a new todo item",
+                  "timedOut": null,
+                  "duration": 1123,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.get(\"input[placeholder='new task']\").type(\"Test Todo\");\ncy.get(\"input[placeholder='new task']\").type(\"{enter}\");\ncy.wait(500);\ncy.get(\"#todo-container\").should(\"contain\", \"Test Todo\");\ncy.get(\"input[placeholder='new task']\").should(\"have.value\", \"\");",
+                  "err": {},
+                  "uuid": "0bee8af3-cd6f-4862-8b4e-0ac35f65215c",
+                  "parentUUID": "ab3c2fbf-fcca-4717-87de-c516c118003a",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should toggle the completion status of a todo item",
+                  "fullTitle": "spec Todo List should toggle the completion status of a todo item",
+                  "timedOut": null,
+                  "duration": 919,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.get(\"#todo-container\").children().eq(1).find(\"input[type='checkbox']\").check();\ncy.wait(500);\ncy.get(\"#todo-container\").children().eq(1).find(\"input[type='checkbox']\");\ncy.get(\"#todo-container\").children().eq(1).contains(\"Learn javascript\").should(\"have.css\", \"text-decoration-line\", \"line-through\");",
+                  "err": {},
+                  "uuid": "952e613e-033b-49dc-893f-c820329a523f",
+                  "parentUUID": "ab3c2fbf-fcca-4717-87de-c516c118003a",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should delete a todo item",
+                  "fullTitle": "spec Todo List should delete a todo item",
+                  "timedOut": null,
+                  "duration": 889,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.get(\"#todo-container\").children().eq(1).find(\"button\").click();\ncy.wait(500);\ncy.get(\"#todo-container\").should(\"not.contain\", \"Learn javascript\");",
+                  "err": {},
+                  "uuid": "2b98a924-2ced-4ea7-83db-49543116bbf6",
+                  "parentUUID": "ab3c2fbf-fcca-4717-87de-c516c118003a",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "87b51b0b-62b7-4402-b1dc-6c867bbc8e31",
+                "63a8afc6-08af-4717-8a3d-b759c0d5d5ab",
+                "dcb3382b-8269-47ec-844c-93506f697c71",
+                "0bee8af3-cd6f-4862-8b4e-0ac35f65215c",
+                "952e613e-033b-49dc-893f-c820329a523f",
+                "2b98a924-2ced-4ea7-83db-49543116bbf6"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 4939,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "results",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "reportFilename": "results",
+        "overwrite": true,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
