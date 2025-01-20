@@ -1,5 +1,9 @@
 import fs from 'fs';
 import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 function generateMarkdownReport(testResults) {
     let totalScore = 0;
@@ -16,7 +20,7 @@ function generateMarkdownReport(testResults) {
 
     // Add screenshots section
     markdown += `\n## Screenshots\n`;
-    const screenshotsDir = path.join(path.dirname(new URL(import.meta.url).pathname), '../screenshots/spec.cy.js');
+    const screenshotsDir = path.resolve(__dirname, '../screenshots/spec.cy.js');
     const screenshots = fs.readdirSync(screenshotsDir);
     screenshots.forEach(screenshot => {
         markdown += `![${screenshot}](./cypress/screenshots/spec.cy.js/${screenshot})\n`;
@@ -51,7 +55,7 @@ function readTestResultsFromFile(filePath) {
 
     return testResults;
 }
-
+// console.log(path.resolve(path.dirname(new URL(import.meta.url).pathname), '../reports/results.json'))
 // Read test results from results.json and write the markdown report
-const testResults = readTestResultsFromFile(path.join(path.dirname(new URL(import.meta.url).pathname), '../reports/results.json'));
+const testResults = readTestResultsFromFile(path.resolve(__dirname, '../reports/results.json'));
 writeReportToFile(testResults, '__test-report__.md');
